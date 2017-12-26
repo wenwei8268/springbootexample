@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: db-service
+
+
+
+security:
+  oauth2:
+    resource:
+      filter-order: 3
+
+
