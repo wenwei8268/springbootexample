@@ -1,7 +1,6 @@
 package com.wenwei.stock.dbservice.model;
 
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -17,11 +16,9 @@ import java.util.Objects;
 @Table(name="user",catalog = "test")
 public class UserModel {
     @Id
-    @Column
+
     private String id;
-    @Column(name = "user_name")
     private String userName;
-    @Column(name = "password")
     private String password;
 
     public UserModel(String userName, String password) {

@@ -8,7 +8,6 @@ import com.wenwei.stock.dbservice.repository.QuotesRepository;
 import com.wenwei.stock.dbservice.repository.UserRepository;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.User;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.Principal;
@@ -23,7 +22,7 @@ import java.util.stream.Collectors;
  * description:
  */
 @RestController
-@RequestMapping("/rest")
+@RequestMapping("/rest/user")
 public class UserServiceResource {
 //    @Autowired
 //    private UserRepository userRepository;
@@ -33,11 +32,11 @@ public class UserServiceResource {
 //    }
     @Autowired
     private UserRepository userRepository;
-    @GetMapping("/user")
-    public User getUser(@PathVariable final String userName){
+    @GetMapping("/{userName}")
+    public UserModel getUser(@PathVariable("userName") final String userName){
        return userRepository.findByUserName(userName);
     }
-    @PostMapping("/user")
+    @PostMapping("/add")
     public UserModel addUser(@RequestBody final UserModel user){
         if(user.equals(null)){
             return user;

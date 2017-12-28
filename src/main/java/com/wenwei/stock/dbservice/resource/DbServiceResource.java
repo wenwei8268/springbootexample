@@ -22,8 +22,10 @@ public class DbServiceResource {
     @Autowired
     private QuotesRepository quotesRepository;
     @GetMapping("/{userName}")
-    public List<String> getQuotes(@PathVariable("userName") final String name){
-        return getQuoteByUserName(name);
+//    @PreAuthorize("hasAuthority('query-demo')")
+    public String getQuotes(@PathVariable("userName") final String name){
+        return "wenwei ";
+//        return getQuoteByUserName(name);
     }
 
     private List<String> getQuoteByUserName(@PathVariable("userName") String name) {
